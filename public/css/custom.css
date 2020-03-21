@@ -1,0 +1,129 @@
+footer {
+    height: 100px;
+    background-color: #9A0808;
+}
+/*Cabecalho*/
+header {
+    background-color: #9A0808;
+	position: fixed;
+	width: 100%;
+}
+.img_cabecalho {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.imglogo {
+    width: 100px;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+.grid_cabecalho {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+}
+.flex_menus {
+    display: flex;
+    justify-content: flex-end;
+}
+.flex_menus a {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    padding-left: 15px;
+    font-weight: bold;
+}
+/*fim cabecalho*/
+/*Parte de cadastro*/
+    .grid-cadastro {
+		padding-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        grid-column-gap: 10px;
+    }
+    .grid_cabecalho div label {
+        font-weight: bold;
+    }
+    .subgrid-cadastro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding-top: 30px;
+        grid-column-gap: 10px;
+    }
+    .margem-cadastro {
+        padding-top: 120px;
+    }
+    .titulo-cadastro {
+        font-size: 20px;
+        font-weight: bold;
+        color: #9A0808;
+        padding-bottom: 20px;
+    }
+    .botaosalvar {
+        background-color: #E78200;
+        border-color: #E78200;
+        color: #ffffff;
+    }
+    .botaosalvar:hover {
+        background-color: #E78200;
+        border-color: #E78200;
+        color: #ffffff;
+    }
+    .botaolimpar {
+        background-color: #9A0808;
+        border-color: #9A0808;
+    }
+    .botaolimpar:hover {
+        background-color: #9A0808;
+        border-color: #9A0808;
+    }
+/*Fim parte de cadastro*/
+/*Parte de listagem*/
+    .margem-listagem {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    .botaoexcluir {
+        color: #9A0808;
+    }
+    .botaoexcluir:hover {
+        color: #9A0808;
+    }
+/*Fim parte de listagem*/
+/*Parte de perguntas*/
+    .grid-perguntas {
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .subgrid-perguntas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .subgrid-perguntas div {
+        width: 200px;
+    }
+    .subgrid-perguntas div:first-child {
+        padding-right: 10px;
+    }
+    .margem-perguntas {
+        padding-top: 120px;
+    }
+/*Fim parte perguntas*/
+/*Parte de vistoria*/
+    .margem-vistoria {
+        padding-bottom: 40px;
+        padding-top: 120px;
+    }
+/*Fim parte vistorias*/
+/*Parte Vistoria especifica*/
+    .margem-listagem-vistoria {
+        padding-top: 120px;
+        padding-bottom: 40px;
+    }
+/*Fim parte vistoria especifica*/
