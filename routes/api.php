@@ -21,4 +21,6 @@ Route::get('/status', function() {
 });
 Route::namespace('Api')->group(function() {
     Route::get('vistorias', 'VistoriaController@vistoria');
+    Route::get('vistorias/{id}', 'VistoriaController@getVistoria');
+    Route::post('vistorias', 'VistoriaController@adicionar');
 });
