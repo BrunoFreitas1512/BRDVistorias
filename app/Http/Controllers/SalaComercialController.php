@@ -65,6 +65,7 @@ class SalaComercialController extends Controller
             "numero" => "required",
             "bairro" => "required",
             "estado" => "required",
+            "cidade" => "required",
             "cep" => "required"
 		], [
 			"nome.required" => "Identificacao da empresa e obrigatoria",
@@ -73,6 +74,7 @@ class SalaComercialController extends Controller
             "numero.required" => "Numero e obrigatorio",
             "bairro.required" => "Bairro e obrigatorio",
             "estado.required" => "Estado e obrigatorio",
+            "cidade.required" => "Cidade e obrigatoria",
 			"cep.required" => "CEP e obrigatorio"
 		]);
 		
@@ -96,6 +98,7 @@ class SalaComercialController extends Controller
         $endereco->bairro = $request->get("bairro");
         $endereco->numero = $request->get("numero");
         $endereco->estado = $request->get("estado");
+        $endereco->cidade = $request->get("cidade");
         $endereco->cep = $request->get("cep");
         $endereco->save();
         $idEndereco = $this->listaIdEndereco();

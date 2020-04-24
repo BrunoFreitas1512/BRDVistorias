@@ -13,7 +13,7 @@
                     <section class="grid-perguntas">
                         <div class="form-group">
                             <label for="pergunta">Pergunta  (maximo 1000 caracteres)</label>
-                            <textarea name="pergunta" rows="10" maxlength="1000" value="{{$pergunta->pergunta}}" class="form-control {{ ($errors->get('pergunta') != null) ? 'is-invalid' : '' }}">{{$pergunta->pergunta}}</textarea>
+                            <textarea name="pergunta" rows="10" maxlength="1000" id="pergunta" value="{{$pergunta->pergunta}}" class="form-control {{ ($errors->get('pergunta') != null) ? 'is-invalid' : '' }}">{{$pergunta->pergunta}}</textarea>
                             <small class="text-danger">{{ utf8_encode($errors->first("pergunta")) }}</small>
                         </div>
                         <div class="subgrid-perguntas">
@@ -22,7 +22,7 @@
                                 <button type="submit" class="btn btn-warning botaosalvar form-control">Salvar</button>
                             </div>
                             <div>
-                                <button type="reset" class="btn btn-danger botaolimpar form-control">Limpar</button>
+                                <button type="button" class="btn btn-danger botao-limpar form-control">Limpar</button>
                             </div>
                         </div>
                     </section>

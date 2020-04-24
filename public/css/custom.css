@@ -1,40 +1,40 @@
-footer {
-    height: 100px;
-    background-color: #9A0808;
-}
+    footer {
+        height: 100px;
+        background-color: #9A0808;
+    }
 /*Cabecalho*/
-header {
-    background-color: #9A0808;
-	position: fixed;
-	width: 100%;
-}
-.img_cabecalho {
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.imglogo {
-    width: 100px;
-    background-color: #ffffff;
-    border-radius: 20px;
-}
-.grid_cabecalho {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    align-items: center;
-}
-.flex_menus {
-    display: flex;
-    justify-content: flex-end;
-}
-.flex_menus a {
-    color: #ffffff;
-    font-size: 18px;
-    text-decoration: none;
-    padding-left: 15px;
-    font-weight: bold;
-}
+    header {
+        background-color: #9A0808;
+        position: fixed;
+        width: 100%;
+    }
+    .img_cabecalho {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .imglogo {
+        width: 100px;
+        background-color: #ffffff;
+        border-radius: 20px;
+    }
+    .grid_cabecalho {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        align-items: center;
+    }
+    .flex_menus {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .flex_menus a {
+        color: #ffffff;
+        font-size: 18px;
+        text-decoration: none;
+        padding-left: 15px;
+        font-weight: bold;
+    }
 /*fim cabecalho*/
 /*Parte de cadastro*/
     .grid-cadastro {
@@ -48,11 +48,16 @@ header {
         font-weight: bold;
     }
     .subgrid-cadastro {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-column: span 2;
+        display: flex;
+        justify-content: center;
         align-items: center;
-        padding-top: 30px;
-        grid-column-gap: 10px;
+    }
+    .subgrid-cadastro > div:first-child {
+        padding-right: 5px;
+    }
+    .subgrid-cadastro > div:last-child {
+        padding-left: 5px;
     }
     .margem-cadastro {
         padding-top: 120px;
@@ -63,23 +68,16 @@ header {
         color: #9A0808;
         padding-bottom: 20px;
     }
-    .botaosalvar {
+    .botaosalvar, .botaosalvar:hover {
         background-color: #E78200;
         border-color: #E78200;
         color: #ffffff;
+        padding: 5px 60px;
     }
-    .botaosalvar:hover {
-        background-color: #E78200;
-        border-color: #E78200;
-        color: #ffffff;
-    }
-    .botaolimpar {
+    .botaolimpar, .botaolimpar:hover {
         background-color: #9A0808;
         border-color: #9A0808;
-    }
-    .botaolimpar:hover {
-        background-color: #9A0808;
-        border-color: #9A0808;
+        padding: 5px 60px;
     }
 /*Fim parte de cadastro*/
 /*Parte de listagem*/

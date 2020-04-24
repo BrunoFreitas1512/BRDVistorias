@@ -14,38 +14,43 @@
                     <section class="grid-cadastro">
                         <div class="form-group">
                             <label for="identLoja">Identificação da Loja</label>
-                            <input type="text" name="nome" value="{{$salacomercial->nome}}" class="form-control {{ ($errors->get('nome') != null) ? 'is-invalid' : '' }}">
+                            <input type="text" name="nome" id="identLoja" value="{{$salacomercial->nome}}" class="form-control {{ ($errors->get('nome') != null) ? 'is-invalid' : '' }}">
                             <small class="text-danger">{{ utf8_encode($errors->first("nome")) }}</small>
                         </div>
                         <div class="form-group">
                             <label for="nomePropri">Nome Proprietario</label>
-                            <input type="text" name="nomeproprietario" value="{{$salacomercial->nomeproprietario}}" class="form-control {{ ($errors->get('nomeproprietario') != null) ? 'is-invalid' : '' }}">
+                            <input type="text" name="nomeproprietario" id="nomePropri" value="{{$salacomercial->nomeproprietario}}" class="form-control {{ ($errors->get('nomeproprietario') != null) ? 'is-invalid' : '' }}">
                             <small class="text-danger">{{ utf8_encode($errors->first("nomeproprietario")) }}</small>
                         </div>
                         <div class="form-group">
+                            <label for="cep">Cep</label>
+                            <input type="text" name="cep" id="cep" value="{{$endereco->cep}}" class="form-control {{ ($errors->get('cep') != null) ? 'is-invalid' : '' }}">
+                            <small class="text-danger">{{ utf8_encode($errors->first("cep")) }}</small>
+                        </div>
+                        <div class="form-group">
                             <label for="rua">Rua</label>
-                            <input type="text" name="rua" value="{{$endereco->rua}}" class="form-control {{ ($errors->get('rua') != null) ? 'is-invalid' : '' }}">
+                            <input type="text" name="rua" id="txtRua" value="{{$endereco->rua}}" class="form-control {{ ($errors->get('rua') != null) ? 'is-invalid' : '' }}">
                             <small class="text-danger">{{ utf8_encode($errors->first("rua")) }}</small>
                         </div>
                         <div class="form-group">
                             <label for="numero">Numero</label>
-                            <input type="text" name="numero" value="{{$endereco->numero}}" class="form-control {{ ($errors->get('numero') != null) ? 'is-invalid' : '' }}">
+                            <input type="text" name="numero" id="txtNumero" value="{{$endereco->numero}}" class="form-control {{ ($errors->get('numero') != null) ? 'is-invalid' : '' }}">
                             <small class="text-danger">{{ utf8_encode($errors->first("numero")) }}</small>
                         </div>
                         <div class="form-group">
                             <label for="bairro">Bairro</label>
-                            <input type="text" name="bairro" value="{{$endereco->bairro}}" class="form-control {{ ($errors->get('bairro') != null) ? 'is-invalid' : '' }}">
+                            <input type="text" name="bairro" id="txtBairro" value="{{$endereco->bairro}}" class="form-control {{ ($errors->get('bairro') != null) ? 'is-invalid' : '' }}">
                             <small class="text-danger">{{ utf8_encode($errors->first("bairro")) }}</small>
                         </div>
                         <div class="form-group">
-                            <label for="estado">Estado</label>
-                            <input type="text" name="estado" value="{{$endereco->estado}}" class="form-control {{ ($errors->get('estado') != null) ? 'is-invalid' : '' }}">
-                            <small class="text-danger">{{ utf8_encode($errors->first("estado")) }}</small>
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="txtCidade" value="{{$endereco->cidade}}" class="form-control {{ ($errors->get('cidade') != null) ? 'is-invalid' : '' }}">
+                            <small class="text-danger">{{ utf8_encode($errors->first("cidade")) }}</small>
                         </div>
                         <div class="form-group">
-                            <label for="cep">Cep</label>
-                            <input type="text" name="cep" value="{{$endereco->cep}}" class="form-control {{ ($errors->get('cep') != null) ? 'is-invalid' : '' }}">
-                            <small class="text-danger">{{ utf8_encode($errors->first("cep")) }}</small>
+                            <label for="estado">Estado</label>
+                            <input type="text" name="estado" id="txtEstado" value="{{$endereco->estado}}" class="form-control {{ ($errors->get('estado') != null) ? 'is-invalid' : '' }}">
+                            <small class="text-danger">{{ utf8_encode($errors->first("estado")) }}</small>
                         </div>
                         <div class="form-group subgrid-cadastro">
                             <div>
@@ -53,7 +58,7 @@
                                 <button type="submit" class="btn btn-warning botaosalvar form-control">Salvar</button>
                             </div>
                             <div>
-                                <button type="reset" class="btn btn-danger botaolimpar form-control">Limpar</button>
+                                <button type="button" class="btn btn-danger botaolimpar form-control">Limpar</button>
                             </div>
                         </div>
                     </section>
@@ -75,7 +80,8 @@
                 <col width="200">
                 <col width="50">
                 <col width="150">
-                <col width="160">
+                <col width="100">
+                <col width="60">
                 <col width="100">
                 <col width="20">
                 <col width="20">
@@ -87,6 +93,7 @@
                     <th>Rua</th>
                     <th>Numero</th>
                     <th>Bairro</th>
+                    <th>Cidade</th>
                     <th>Estado</th>
                     <th>Cep</th>
                     <th>Editar</th>
@@ -118,7 +125,14 @@
                                     {{ $endereco->bairro }}
                                 @endif
                             @endforeach
-                        </td>	
+                        </td>
+                        <td>
+                            @foreach ($enderecos as $endereco)
+                                @if($endereco->id == $salacomercial->endereco)
+                                    {{ $endereco->cidade }}
+                                @endif
+                            @endforeach
+                        </td>		
                         <td>
                             @foreach ($enderecos as $endereco)
                                 @if($endereco->id == $salacomercial->endereco)
