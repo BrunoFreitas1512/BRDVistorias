@@ -8,6 +8,26 @@
             <div class="titulo-cadastro">
                 Listagem de Vistoria
             </div>
+            <div class="titulo-respostas">
+                @foreach ($salacomerciais as $sala)
+                    @foreach ($vistorias as $visto)
+                        @if ($sala->id == $visto->salacomercial)
+                            <h1>
+                                <span>Sala Comercial: </span>
+                                {{ $sala->nome }}
+                            </h1>
+                            <h2>
+                                <span>Data: </span>
+                                {{ $visto->datavistoria }}
+                            </h2>
+                            <p>
+                                <span>Comentario: </span>
+                                {{ $visto->comentario }}
+                            </p>
+                        @endif
+                    @endforeach
+                @endforeach
+            </div>
             <table class="table table-striped">
                 <colgroup>
                     <col width="800">
@@ -40,30 +60,9 @@
                     @endforeach
                 </tbody>
             </table>
-            <table class="table table-striped">
-                <colgroup>
-                    <col width="800">
-                    <col width="200">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>Comentario</th>
-                        <th>Data Vistoria</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($vistorias as $vist)
-                        <tr>
-                            <td>
-                                {{ $vist->comentario }}
-                            </td>	
-                            <td>
-                                {{ $vist->datavistoria }}
-                            </td>	
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="div-botao-voltar">
+                <a href="/vistoria" class="btn btn-danger botaolimpar">Voltar</a>
+            </div>
         </div>
     </div>
     @endsection

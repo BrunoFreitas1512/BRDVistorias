@@ -22,7 +22,7 @@
                                 <button type="submit" class="btn btn-warning botaosalvar form-control">Salvar</button>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-danger botao-limpar form-control">Limpar</button>
+                                <button type="button" class="btn btn-danger botaolimpar form-control">Limpar</button>
                             </div>
                         </div>
                     </section>
