@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SalaComercial;
+use App\Endereco;
 
 class VistoriaController extends Controller
 {
@@ -15,7 +16,12 @@ class VistoriaController extends Controller
      */
     public function vistoria()
     {
-        return SalaComercial::all();
+        $salacomerciais = SalaComercial::All();
+		$enderecos = Endereco::All();
+        return compact(
+            "salascomerciais",
+            "enderecos"
+        );
     }
     public function getVistoria ($id) {
         $salaComercial = SalaComercial::find($id);
@@ -25,13 +31,44 @@ class VistoriaController extends Controller
     public function adicionar (Request $request) {
         try {
 
-            $salaComercial = new SalaComercial;
-            $salacomercial->nome = $request->get("nome");
-            $salacomercial->nomeproprietario = $request->get("nomeproprietario");
+            $salacomercial = new SalaComercial();
+            $salacomercial->nome = $request->nome_app;
+            $salacomercial->nomeproprietario = $request->nomepropietario_app;
             $salacomercial->endereco = 2;
             $salacomercial->save();
 
             return ['insert' => 'ok'];
+
+        } catch (Exception $erro) {
+
+            return ['erro' => 'ok'];
+
+        }
+    }
+    public function atualizar (Request $request, $id) {
+        try {
+
+            $salacomercial = SalaComercial::find($id);
+            $salacomercial->nome = $request->nome_app;
+            $salacomercial->nomeproprietario = $request->nomepropietario_app;
+            $salacomercial->endereco = 3;
+            $salacomercial->save();
+
+            return ['update' => 'ok'];
+
+        } catch (Exception $erro) {
+
+            return ['erro' => 'ok'];
+
+        }
+    }
+    public function delete ($id) {
+        try {
+
+            $salacomercial = SalaComercial::find($id);
+            $salacomercial->delete();
+
+            return ['delete' => 'ok'];
 
         } catch (Exception $erro) {
 

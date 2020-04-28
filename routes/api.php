@@ -23,4 +23,6 @@ Route::namespace('Api')->group(function() {
     Route::get('vistorias', 'VistoriaController@vistoria');
     Route::get('vistorias/{id}', 'VistoriaController@getVistoria');
     Route::post('vistorias', 'VistoriaController@adicionar');
+    Route::put('vistorias/{id}', 'VistoriaController@atualizar');
+    Route::delete('vistorias/{id}', 'VistoriaController@delete');
 });
