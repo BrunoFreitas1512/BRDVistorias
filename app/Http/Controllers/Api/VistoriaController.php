@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SalaComercial;
-use App\Endereco;
+use App\Vistoria;
+use App\Pergunta;
+use App\Resposta;
 
 class VistoriaController extends Controller
 {
@@ -14,66 +16,94 @@ class VistoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function vistoria()
-    {
-        $salacomerciais = SalaComercial::All();
-		$enderecos = Endereco::All();
-        return compact(
-            "salascomerciais",
-            "enderecos"
-        );
+    public function pergunta() {
+        $perguntas = Pergunta::All();
+        return compact("perguntas");
     }
-    public function getVistoria ($id) {
-        $salaComercial = SalaComercial::find($id);
-
-        return $salaComercial;
+    public function vistoria() {
+        $vistorias = Vistoria::All();
+        return compact("vistorias");
+    }
+    public function salaComercial() {
+        $salascomercias = SalaComercial::All();
+        return compact("salascomercias");
+    }
+    public function resposta() {
+        $respostas = Resposta::All();
+        return compact("respostas");
     } 
-    public function adicionar (Request $request) {
+    public function getVistoria ($id) {
+        $vistorias = Vistoria::find($id);
+        return compact("vistorias");
+    }
+    public function getResposta ($id) {
+        $respostas = Resposta::find($id);
+        return compact("respostas");
+    }
+    public function adicionarVistoria (Request $request) {
         try {
-
-            $salacomercial = new SalaComercial();
-            $salacomercial->nome = $request->nome_app;
-            $salacomercial->nomeproprietario = $request->nomepropietario_app;
-            $salacomercial->endereco = 2;
-            $salacomercial->save();
-
+            $vistoria = new Vistoria();
+            $vistoria->comentario = $request->comentario_app;
+            $vistoria->datavistoria = $request->datavistoria_app;
+            $vistoria->salacomercial = $request->salacomercial_app;
+            $vistoria->save();
             return ['insert' => 'ok'];
-
         } catch (Exception $erro) {
-
             return ['erro' => 'ok'];
-
         }
     }
-    public function atualizar (Request $request, $id) {
+    public function adicionarResposta (Request $request) {
         try {
-
-            $salacomercial = SalaComercial::find($id);
-            $salacomercial->nome = $request->nome_app;
-            $salacomercial->nomeproprietario = $request->nomepropietario_app;
-            $salacomercial->endereco = 3;
-            $salacomercial->save();
-
+            $resposta = new Resposta();
+            $resposta->situacao = $request->situacao_app;
+            $resposta->vistoria = $request->vistoria_app;
+            $resposta->pergunta = $request->pergunta_app;
+            $resposta->save();
+            return ['insert' => 'ok'];
+        } catch (Exception $erro) {
+            return ['erro' => 'ok'];
+        }
+    }
+    public function atualizarVistoria (Request $request, $id) {
+        try {
+            $vistoria = Vistoria::find($id);
+            $vistoria->comentario = $request->comentario_app;
+            $vistoria->datavistoria = $request->datavistoria_app;
+            $vistoria->salacomercial = $request->salacomercial_app;
+            $vistoria->save();
             return ['update' => 'ok'];
-
         } catch (Exception $erro) {
-
             return ['erro' => 'ok'];
-
         }
     }
-    public function delete ($id) {
+    public function atualizarResposta (Request $request, $id) {
         try {
-
-            $salacomercial = SalaComercial::find($id);
-            $salacomercial->delete();
-
-            return ['delete' => 'ok'];
-
+            $resposta = Resposta::find($id);
+            $resposta->situacao = $request->situacao_app;
+            $resposta->vistoria = $request->vistoria_app;
+            $resposta->pergunta = $request->pergunta_app;
+            $resposta->save();
+            return ['update' => 'ok'];
         } catch (Exception $erro) {
-
             return ['erro' => 'ok'];
-
+        }
+    }
+    public function deleteVistoria ($id) {
+        try {
+            $vistoria = Vistoria::find($id);
+            $vistoria->delete();
+            return ['delete' => 'ok'];
+        } catch (Exception $erro) {
+            return ['erro' => 'ok'];
+        }
+    }
+    public function deleteResposta ($id) {
+        try {
+            $resposta = Resposta::find($id);
+            $resposta->delete();
+            return ['delete' => 'ok'];
+        } catch (Exception $erro) {
+            return ['erro' => 'ok'];
         }
     }
 }

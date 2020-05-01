@@ -21,8 +21,18 @@ Route::get('/status', function() {
 });
 Route::namespace('Api')->group(function() {
     Route::get('vistorias', 'VistoriaController@vistoria');
+    Route::get('salasComerciais', 'VistoriaController@salaComercial');
+    Route::get('perguntas', 'VistoriaController@pergunta');
     Route::get('vistorias/{id}', 'VistoriaController@getVistoria');
-    Route::post('vistorias', 'VistoriaController@adicionar');
-    Route::put('vistorias/{id}', 'VistoriaController@atualizar');
-    Route::delete('vistorias/{id}', 'VistoriaController@delete');
+    Route::get('respostas/{id}', 'VistoriaController@getResposta');
+    Route::get('respostas', 'VistoriaController@resposta');
+
+    Route::post('vistorias', 'VistoriaController@adicionarVistoria');
+    Route::post('respostas', 'VistoriaController@adicionarResposta');
+
+    Route::put('vistorias/{id}', 'VistoriaController@atualizarVistoria');
+    Route::put('respostas/{id}', 'VistoriaController@atualizarResposta');
+    
+    Route::delete('vistorias/{id}', 'VistoriaController@deleteVistoria');
+    Route::delete('respostas/{id}', 'VistoriaController@deleteResposta');
 });
