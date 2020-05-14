@@ -32,7 +32,8 @@ Route::namespace('Api')->group(function() {
 
     Route::put('vistorias/{id}', 'VistoriaController@atualizarVistoria');
     Route::put('respostas/{id}', 'VistoriaController@atualizarResposta');
-    
+
     Route::delete('vistorias/{id}', 'VistoriaController@deleteVistoria');
     Route::delete('respostas/{id}', 'VistoriaController@deleteResposta');
 });
+    
