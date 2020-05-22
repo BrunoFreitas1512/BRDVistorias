@@ -33,7 +33,13 @@
                                     @endif
                                 @endforeach
                             </td>	
-                            <td>{{ $vistoria->comentario }}</td>	
+                            <td>
+                                @foreach ($comentarios as $com)
+                                    @if ($vistoria->id == $com->vistoria)
+                                        {{ $com->comentario }}
+                                    @endif
+                                @endforeach    
+                            </td>	
                             <td>{{ $vistoria->datavistoria }}</td>	
                             <td>
                                 <a href="/resposta/{{ $vistoria->id }}" class="btn btn-dark form-control">

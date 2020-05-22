@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vistoria;
 use App\SalaComercial;
+use App\Comentario;
+
 
 class VistoriaController extends Controller
 {
@@ -18,10 +20,12 @@ class VistoriaController extends Controller
         $vistoria = new Vistoria();
         $vistorias = Vistoria::All();
         $salascomerciais = SalaComercial::All();
+        $comentarios = Comentario::All();
 		return view("vistoria.index", [
             "vistoria" => $vistoria,
             "vistorias" => $vistorias,
-            "salascomerciais" => $salascomerciais
+            "salascomerciais" => $salascomerciais,
+            "comentarios" => $comentarios
 		]);
     }
 

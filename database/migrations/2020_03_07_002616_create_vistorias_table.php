@@ -15,7 +15,6 @@ class CreateVistoriasTable extends Migration
     {
         Schema::create('vistoria', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('comentario', 500);
             $table->date('datavistoria');
             $table->integer("salacomercial")->unsigned();
 			$table->foreign("salacomercial")->references("id")->on("salacomercial");

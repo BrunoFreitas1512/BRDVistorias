@@ -50,7 +50,7 @@ class SalaComercialController extends Controller
     public function store(Request $request)
     {
         if ($request->get("id") != null) {
-            $salacomercial= SalaComercial::Find($request->get("id"));
+            $salacomercial = SalaComercial::Find($request->get("id"));
 			$endereco = Endereco::Find($request->get("id"));
         }
 		else {

@@ -22,7 +22,11 @@
                             </h2>
                             <p>
                                 <span>Comentario: </span>
-                                {{ $visto->comentario }}
+                                @foreach ($comentarios as $com)
+                                    @if ($visto->id == $com->vistoria)
+                                        {{ $com->comentario }}
+                                    @endif
+                                @endforeach
                             </p>
                         @endif
                     @endforeach
